@@ -1,5 +1,5 @@
 # MERN Stack authentication system
-Authentication system using MERN Stack. Using this, you can create an account, login to your account and view your profile home page.
+Authentication system using MERN Stack. Using this, you can create an account, login to your account and view your profile.
 
 ## Quick start
 ```
