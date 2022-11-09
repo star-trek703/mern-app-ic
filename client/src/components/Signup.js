@@ -31,6 +31,11 @@ const Signup = ({ isLoggedIn, setIsLoggedIn, setUser }) => {
   const onSubmit = async (e) => {
     e.preventDefault()
 
+    if (password !== confirm_password) {
+      setError('Confirm password doesn\'t match with password')
+      return
+    }
+
     try {
       const userData = {
         name, email, password
