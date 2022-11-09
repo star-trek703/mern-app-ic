@@ -7,14 +7,14 @@ import Signin from './components/Signin'
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
-  const [user, setUser] = useState(false)
+  const [user, setUser] = useState(null)
 
   useEffect(() => {
-    const user = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null
+    const userData = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null
 
-    if (user) {
+    if (userData) {
       setIsLoggedIn(true)
-      setUser(user)
+      setUser(userData)
     }
   }, [])
 
@@ -29,10 +29,10 @@ const App = () => {
             <Home isLoggedIn={ isLoggedIn } user={ user } /> 
           } />
           <Route path='/signup' element={
-            <Signup isLoggedIn={ isLoggedIn } setIsLoggedIn={ setIsLoggedIn } />
+            <Signup isLoggedIn={ isLoggedIn } setIsLoggedIn={ setIsLoggedIn } setUser={ setUser } />
           } />
           <Route path='/signin' element={
-            <Signin isLoggedIn={ isLoggedIn } setIsLoggedIn={ setIsLoggedIn } />
+            <Signin isLoggedIn={ isLoggedIn } setIsLoggedIn={ setIsLoggedIn } setUser={ setUser } />
           } />
         </Routes>
       </Router>
